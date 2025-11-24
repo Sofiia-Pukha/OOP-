@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Laba2.MainPage"
+             Title="Лабораторна робота №2 (MAUI)">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+
+            <Button
+                x:Name="btnPickFile"
+                Text="Обрати XML Файл"
+                Clicked="OnPickFileClicked"
+                HorizontalOptions="Fill" />
+
+            <Label 
+                x:Name="lblSelectedFile"
+                Text="Файл: (не обрано)"
+                FontSize="12"
+                HorizontalOptions="Center"
+                FontAttributes="Italic" 
+                Margin="0,0,0,10"/>
+            <Frame Padding="10" BorderColor="LightGray" CornerRadius="5">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Стратегія аналізу:" FontSize="16" FontAttributes="Bold"/>
+                    <RadioButton x:Name="rbDOM" Content="DOM" IsChecked="True"/>
+                    <RadioButton x:Name="rbSAX" Content="SAX" />
+                    <RadioButton x:Name="rbLinq" Content="LINQ to XML" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label Text="Шукати за:" Margin="0,10,0,0"/>
+            <Picker x:Name="pickerSearchField" Title="Оберіть поле...">
+            </Picker>
+
+            <Label Text="Значення:"/>
+            <Entry x:Name="txtSearchValue" Placeholder="Введіть значення..."/>
+
+            <HorizontalStackLayout Spacing="10" Margin="0,15,0,0">
+                <Button x:Name="btnSearch" Text="Пошук" WidthRequest="100" Clicked="btnSearch_Click"/>
+                <Button x:Name="btnClear" Text="Очистити" WidthRequest="100" Clicked="btnClear_Click"/>
+            </HorizontalStackLayout>
+
+            <Button x:Name="btnTransform" Text="Трансформувати в HTML" Margin="0,5,0,0" Clicked="btnTransform_Click"/>
+
+            <Label Text="Результат:" FontSize="16" FontAttributes="Bold" Margin="0,15,0,0"/>
+            <Editor x:Name="rtbResult" HeightRequest="250" IsReadOnly="True" />
+
+            <Button
+                x:Name="btnExit"
+                Text="Вихід з програми"
+                BackgroundColor="Red"
+                TextColor="White"
+                HorizontalOptions="Fill"
+                Margin="0,20,0,0"
+                Clicked="OnExitButtonClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
